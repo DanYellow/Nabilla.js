@@ -6,14 +6,14 @@ $(function() {
 
     $('body').append(audioPlayer);
 
-    $(document).on('click', 'a', function(evt){
+    $(document).on('click', 'a[target!="_blank"]', function(evt) {
         evt.preventDefault();
 
         $linkClickedHref = $(this).attr('href');
         audioPlayer.play();
     });
 
-    audioPlayer.addEventListener('ended', function(){
+    audioPlayer.addEventListener('ended', function() {
         this.currentTime = 0;
         window.location.href = $linkClickedHref;
     }, false);
